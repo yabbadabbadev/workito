@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
 import { App } from 'App'
-import { configure as configureWrap, wrap } from '../../../../wrap'
 import { createBrowserHistory } from 'history'
 import { workito, configure } from 'lib/workito'
 export const history = createBrowserHistory()
@@ -11,18 +10,6 @@ describe('using the former router mode (BrowserRouter)', () => {
     vi.spyOn(useRouterProviderModule, 'useRouterProvider').mockReturnValueOnce(
       false,
     )
-  })
-
-  it('should render the blog page with wrap', async () => {
-    configureWrap({
-      changeRoute: (route) => history.push(route),
-      mount: render,
-    })
-    wrap(App).atPath('/blog').mount()
-
-    expect(
-      await screen.findByRole('heading', { name: 'Blog page' }),
-    ).toBeInTheDocument()
   })
 
   it('should render the blog page with history push', async () => {
@@ -64,18 +51,6 @@ describe('using the former router mode (BrowserRouter)', () => {
 describe('using the latest router mode (RouterProvider)', () => {
   beforeEach(() => {
     vi.spyOn(useRouterProviderModule, 'useRouterProvider').mockReturnValue(true)
-  })
-
-  it('should render the blog page with wrap', async () => {
-    configureWrap({
-      changeRoute: (route) => history.push(route),
-      mount: render,
-    })
-    wrap(App).atPath('/blog').mount()
-
-    expect(
-      await screen.findByRole('heading', { name: 'Blog page' }),
-    ).toBeInTheDocument()
   })
 
   it('should render the blog page with history push', async () => {
