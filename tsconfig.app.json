@@ -24,6 +24,5 @@
     /* New configuration */
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["src", "./setupTests.ts"],
-  "exclude": ["node_modules", "src/lib/wrap"]
+  "include": ["src", "./setupTests.ts"]
 }
