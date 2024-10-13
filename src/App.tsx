@@ -9,16 +9,15 @@ import {
 } from 'react-router-dom'
 import { BlogPage } from 'pages/blog'
 import { HomePage } from 'pages/home'
+import { useRouterProvider } from 'utils/use-router-provider'
 
 const router = createBrowserRouter([
   { path: '/', element: <HomePage /> },
   { path: '/blog', element: <BlogPage /> },
 ])
 
-const hasModernRouter = true
-
 const App = () => {
-  return hasModernRouter ? (
+  return useRouterProvider() ? (
     <RouterProvider router={router} />
   ) : (
     <BrowserRouter>
