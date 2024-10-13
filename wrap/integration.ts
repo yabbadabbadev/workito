@@ -1,4 +1,4 @@
 import { expect } from 'vitest'
-import { matchers } from '.'
+import { matchers } from './index'
 
 expect.extend(matchers)

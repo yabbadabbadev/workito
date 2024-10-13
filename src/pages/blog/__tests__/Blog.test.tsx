@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { App } from 'App'
-import { configure as configureWrap, wrap } from 'lib/wrap'
+import { configure as configureWrap, wrap } from '../../../../wrap'
 import { createBrowserHistory } from 'history'
 import { workito, configure } from 'lib/workito'
 export const history = createBrowserHistory()
